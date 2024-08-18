@@ -14,7 +14,10 @@ co = cohere.Client(
 def getResponseFromCohere(input):
     resp= co.generate(
         model='command-r-plus',
-        prompt=input
+        prompt=input,
+        max_tokens=300,
+        temperature=0.9,
+        k=0,
     )
     return resp.generations[0].text
 

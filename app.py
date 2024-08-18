@@ -42,6 +42,7 @@ I want the response in one single string having the structure
 ##initate streamlit app
 st.title("ATS Tracker")
 st.text("Improve your resume ATS")
+st.text("Made by Aditya Kumar")
 jd=st.text_area("Please add the job description")
 uploaded_file=st.file_uploader("Upload your resume",type="pdf",help="Please upload in PDF")
 submit=st.button("Submit")

@@ -35,7 +35,7 @@ for improving the resumes.
 Assign the percentage matching based on the JD and the missing keywords with high accuracy
 resume:{text}
 description:{jd}
-I want the response in one single string having the structure
+I want the response in one single string having the structure and remember to keep it properly formatted.
 {{"JD Match":"%","MissingKeywords:[]","Profile Summary":""}}
 """
 
@@ -49,7 +49,8 @@ submit=st.button("Submit")
 
 if submit:
     if uploaded_file is not None:
-        text=input_pdf_text(uploaded_file)
-        formatted_prompt = input_prompt.format(text=text, jd=jd)
-        response=getResponseFromCohere(formatted_prompt)
+        with st.spinner("Please wait, getting your scores ready..."):
+            text=input_pdf_text(uploaded_file)
+            formatted_prompt = input_prompt.format(text=text, jd=jd)
+            response=getResponseFromCohere(formatted_prompt)
         st.subheader(response)
